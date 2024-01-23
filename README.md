@@ -31,8 +31,8 @@ All data used in this project is retrieved from open-sourced APIs. The APIs are 
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/web2-library-management.git
-   cd web2-library-management
+   git clone https://github.com/lbenjak/web2-lab6.git
+   cd web2-lab6
    ```
 
 2. Install dependencies:
