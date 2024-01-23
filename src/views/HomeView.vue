@@ -1,7 +1,7 @@
 <template>
   <div class="homepage">
     <section class="most-borrowed">
-      <h2>Top Three Most Borrowed Books</h2>
+      <h2>Top 3 Most Borrowed Books</h2>
       <div v-if="loading">Loading...</div>
       <div v-else class="book-card-container">
         <div v-for="book in mostBorrowedBooks" :key="book.id" class="book-card">
@@ -22,7 +22,9 @@
 <script>
 import axios from 'axios';
 import BookDetails from '../components/BookDetails.vue';
-import Announcement from '../components/Announcement.vue'; 
+import Announcement from '../components/Announcement.vue';
+import { useAnnouncementStore } from '../stores/announcementStore.js';
+
 
 export default {
   components: {
@@ -43,7 +45,7 @@ export default {
   methods: {
     async fetchMostBorrowedBooks() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/5c3fb7d2-f19e-4f12-be0a-45639198c0e3');
+        const response = await axios.get('https://run.mocky.io/v3/a895a176-5523-41bd-9812-190df228d243');
         this.mostBorrowedBooks = response.data;
       } catch (error) {
         console.error('Error fetching most borrowed books:', error);
@@ -53,8 +55,13 @@ export default {
     },
     async fetchAnnouncements() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/67c57eb3-f61f-4036-94ee-5e7ec68f8b71');
+        const response = await axios.get('https://run.mocky.io/v3/a6f16d98-5d36-42b7-be4c-dc9a5d8b0b7e');
         this.announcements = response.data;
+
+        const announcementStore = useAnnouncementStore();
+        this.announcements.forEach((announcement) => {
+          announcementStore.addAnnouncement(announcement);
+        });
       } catch (error) {
         console.error('Error fetching announcements:', error);
       }
