@@ -22,7 +22,9 @@
 <script>
 import axios from 'axios';
 import BookDetails from '../components/BookDetails.vue';
-import Announcement from '../components/Announcement.vue'; 
+import Announcement from '../components/Announcement.vue';
+import { useAnnouncementStore } from '../stores/announcementStore.js';
+
 
 export default {
   components: {
@@ -53,8 +55,13 @@ export default {
     },
     async fetchAnnouncements() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/67c57eb3-f61f-4036-94ee-5e7ec68f8b71');
+        const response = await axios.get('https://run.mocky.io/v3/a6f16d98-5d36-42b7-be4c-dc9a5d8b0b7e');
         this.announcements = response.data;
+
+        const announcementStore = useAnnouncementStore();
+        this.announcements.forEach((announcement) => {
+          announcementStore.addAnnouncement(announcement);
+        });
       } catch (error) {
         console.error('Error fetching announcements:', error);
       }
