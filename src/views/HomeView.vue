@@ -1,7 +1,7 @@
 <template>
   <div class="homepage">
     <section class="most-borrowed">
-      <h2>Top Three Most Borrowed Books</h2>
+      <h2>Top 3 Most Borrowed Books</h2>
       <div v-if="loading">Loading...</div>
       <div v-else class="book-card-container">
         <div v-for="book in mostBorrowedBooks" :key="book.id" class="book-card">
@@ -45,7 +45,7 @@ export default {
   methods: {
     async fetchMostBorrowedBooks() {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/5c3fb7d2-f19e-4f12-be0a-45639198c0e3');
+        const response = await axios.get('https://run.mocky.io/v3/a895a176-5523-41bd-9812-190df228d243');
         this.mostBorrowedBooks = response.data;
       } catch (error) {
         console.error('Error fetching most borrowed books:', error);

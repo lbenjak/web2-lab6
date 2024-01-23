@@ -27,7 +27,7 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get('https://run.mocky.io/v3/68bdc0f2-e08b-4ea8-9b99-fc9b4385f128');
+      const response = await axios.get('https://run.mocky.io/v3/8cf8eac0-04f4-4429-a752-7c7e409088f9');
       this.catalogue = response.data;
     } catch (error) {
       console.error('Error fetching catalogue:', error);
