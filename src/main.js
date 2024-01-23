@@ -1,4 +1,5 @@
 import './assets/main.css'
+import Book from './components/Book.vue';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

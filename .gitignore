@@ -14,6 +14,7 @@ dist-ssr
 coverage
 *.local
 
+.vite
 /cypress/videos/
 /cypress/screenshots/
 
@@ -26,5 +27,9 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+.eslintrc.cjs
+.prettierrc.json
+jsconfig.json
+
 
 *.tsbuildinfo

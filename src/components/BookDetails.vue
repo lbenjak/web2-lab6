@@ -1,7 +1,6 @@
-<!-- BookDetails.vue -->
 <template>
   <div class="book-details">
-    <img :src="book.coverImage" alt="Book Cover" class="book-cover" />
+    <img :src="book.coverImage" alt="Book Cover Details" class="book-cover" @error="handleImageError"/>
     <div class="info">
       <h3>{{ book.title }}</h3>
       <p>{{ book.author }}</p>
@@ -11,6 +10,7 @@
 </template>
 
 <script>
+
 export default {
   props: {
     book: {
@@ -18,7 +18,13 @@ export default {
       required: true,
     },
   },
+  methods: {
+  handleImageError(event) {
+    event.target.src = 'https://unsplash.com/photos/xG5VJW-7Bio/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8N3x8Ym9vayUyMGNvdmVyfGVufDB8fHx8MTcwNjAyMTQ1N3ww&force=true&w=640';
+  }
+  }
 };
+
 </script>
 
 <style scoped>

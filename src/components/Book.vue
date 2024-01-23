@@ -1,6 +1,6 @@
 <template>
-  <div class="book" @click="selectBook">
-    <!-- Book details rendering here -->
+  <div class="book">
+    <div class="book-details"></div>
   </div>
 </template>
 
@@ -12,19 +12,19 @@ export default {
       required: true,
     },
   },
-  methods: {
-    selectBook() {
-      // Emit the event when a book is selected
-      this.$emit("bookSelected", this.book);
-    },
-  },
 };
 </script>
 
 <style scoped>
-/* Scoped styles for the book component */
 .book {
-  /* Your styling here */
-  cursor: pointer;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.book-details {
+  flex-grow: 1;
 }
 </style>
